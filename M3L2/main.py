@@ -36,6 +36,9 @@ def electronics(size, lights):
 # Perhitungan
 @app.route('/<size>/<lights>/<device>')
 def end(size, lights, device):
+    with open('form.txt', 'a') as f:
+    f.write(f"Size: {size}, Lights: {lights}, Devices: {device}\n")
+    
     return render_template('end.html', 
                             result=result_calculate(int(size),
                                                     int(lights), 
